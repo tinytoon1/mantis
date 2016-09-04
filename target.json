@@ -1,0 +1,11 @@
+{
+  "web":
+  {
+    "baseURL": "http://localhost/mantis/"
+  },
+  "admin":
+  {
+  "username": "administrator",
+  "password": "secret"
+  }
+}
