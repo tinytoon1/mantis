@@ -1,19 +1,13 @@
 from selenium import webdriver
 from fixture.session import SessionHelper
+from fixture.project import ProjectHelper
 
 
 class Application:
-    def __init__(self, browser, baseurl):
-        if browser == 'firefox':
-            self.wd = webdriver.Firefox()
-        elif browser == 'chrome':
-            self.wd = webdriver.Chrome()
-        elif browser == 'ie':
-            self.wd = webdriver.Ie()
-        else:
-            raise ValueError("Unrecognized browser: %s" % browser)
-        # self.wd.implicitly_wait(3)
+    def __init__(self, baseurl):
+        self.wd = webdriver.Firefox()
         self.session = SessionHelper(self)
+        self.project = ProjectHelper(self)
         self.baseurl = baseurl
 
     def is_valid(self):
