@@ -5,7 +5,7 @@ from fixture.project import ProjectHelper
 
 class Application:
     def __init__(self, baseurl):
-        self.wd = webdriver.Firefox()
+        self.wd = webdriver.Chrome()
         self.session = SessionHelper(self)
         self.project = ProjectHelper(self)
         self.baseurl = baseurl
