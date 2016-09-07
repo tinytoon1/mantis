@@ -7,10 +7,10 @@ def test_delete_project(app):
         new_project = Project(name='NEW', description='DESCRIPTION')
         app.project.add(new_project)
 
-    projects = app.project.get_projects()
+    projects = app.soap.get_projects('administrator', 'secret')
     random_project = random.choice(projects)
     app.project.delete_by_name(random_project)
 
-    new_projects = app.project.get_projects()
+    new_projects = app.soap.get_projects('administrator', 'secret')
     projects.remove(random_project)
     assert sorted(projects, key=Project.get_name) == sorted(new_projects, key=Project.get_name)
